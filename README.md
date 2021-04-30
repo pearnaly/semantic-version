@@ -19,7 +19,7 @@ fullVersion.buildMetadataIdentifiers // ['build2']
 const myVersion = new SemVersion('1.2.3');
 
 // comparaison: returns -1 / 0 / 1 according to order
-SemVersion.compare('1.2.3', '1.3.0'); // returns -1
+myVersion.compare('1.3.0'); // returns -1
 
 //comparaison:  operators eq, gt, ge, lt, le
 myVersion.eq('1.2.3'); // returns true
