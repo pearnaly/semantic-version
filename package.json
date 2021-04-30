@@ -1,0 +1,42 @@
+{
+  "name": "@pearnaly/semantic-version",
+  "version": "1.0.0",
+  "description": "Javascript/Typescript class to represent, parse and compare semantic versions according to semver.org",
+  "repository": "https://github.com/pearnaly/semantic-version.git",
+  "homepage": "https://github.com/pearnaly/semantic-version",
+  "author": "Paul-Émile Arnaly <pearnaly@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "keywords": [
+    "Semantic Versioning"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc",
+    "watch": "npm run clean && tsc --watch",
+    "test": "mocha -r ts-node/register src/**/*.test.ts",
+    "lint": "eslint src",
+    "publish": "npm publish --access=public"
+  },
+  "peerDependencies": {},
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "^4.2.17",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^15.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "chai": "^4.3.4",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-plugin-import": "^2.22.1",
+    "mocha": "^8.3.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}

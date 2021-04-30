@@ -1,2 +1,37 @@
 # semantic-version
-Javascript/Typescript class to represent, parse and compare semantic versions according to semver.org
+Javascript/Typescript class to represent, parse and compare semantic versions 2.0.0 according to [https://semver.org](semver.org)
+
+## Installation
+```
+npm install @pearnaly/semantic-version
+```
+
+## Use
+### Object Oriented
+```typescript
+const fullVersion = new SemVersion('1.2.3-beta.1a+build2');
+fullVersion.major // 1
+fullVersion.minor // 2
+fullVersion.patch // 3
+fullVersion.preReleaseIdentifiers // ['beta', '1a']
+fullVersion.buildMetadataIdentifiers // ['build2']
+
+const myVersion = new SemVersion('1.2.3');
+
+// comparaison: returns -1 / 0 / 1 according to order
+SemVersion.compare('1.2.3', '1.3.0'); // returns -1
+
+//comparaison:  operators eq, gt, ge, lt, le
+myVersion.eq('1.2.3'); // returns true
+myVersion.lt('1.3.0'); // returns true
+```
+
+### Functional
+```typescript
+// comparaison
+SemVersion.compare('1.2.3', '1.3.0'); // returns -1
+
+// comparaison: operators eq, gt, ge, lt, le
+SemVersion.eq('1.2.3', '1.2.3'); // returns true
+SemVersion.lt('1.2.3', '1.3.0'); // returns true
+```
