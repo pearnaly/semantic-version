@@ -1,6 +1,6 @@
 {
   "name": "@pearnaly/semantic-version",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Javascript/Typescript class to represent, parse and compare semantic versions according to semver.org",
   "repository": "https://github.com/pearnaly/semantic-version.git",
   "homepage": "https://github.com/pearnaly/semantic-version",
@@ -8,6 +8,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bugs": "https://github.com/pearnaly/semantic-version/issues",
   "files": [
     "/dist"
   ],
