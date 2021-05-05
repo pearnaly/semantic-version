@@ -80,7 +80,10 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+types
+es5
+esm2015
+bundles
 
 # Gatsby files
 .cache/
