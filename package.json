@@ -1,6 +1,6 @@
 {
   "name": "@pearnaly/semantic-version",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Javascript/Typescript class to represent, parse and compare semantic versions according to semver.org",
   "repository": "https://github.com/pearnaly/semantic-version.git",
   "homepage": "https://github.com/pearnaly/semantic-version",
@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "clean": "rimraf types es5 esm2015 bundles",
-    "buildTypes": "tsc --declaration --allowJs --emitDeclarationOnly --outDir types",
+    "buildTypes": "tsc --declaration --allowJs --emitDeclarationOnly --removeComments false --outDir types",
     "build": "npm run clean && npm run buildTypes && tsc && tsc -m es6 --outDir esm2015 && webpack",
     "watch": "npm run clean && tsc --watch",
     "test": "mocha -r ts-node/register src/**/*.test.ts",

@@ -4,6 +4,9 @@ export enum ComparisonResult {
   Greater = 1,
 }
 
+/**
+ * Represents a Semantic Version as described in [https://semver.org](semver.org)
+ */
 export class SemVersion {
   public readonly strVersion: string;
 
@@ -36,6 +39,14 @@ export class SemVersion {
     this.buildMetadataIdentifiers = groups.buildMetadataIdentifiers ? groups.buildMetadataIdentifiers.split('.') : [];
   }
 
+  /**
+     * Compare the two provided versions.
+     *    -1 if version1 <  version2
+     *     0 if version1 == version2
+     *     1 if version1 >  version2
+     * @param version1 first version to compare - as instance of SemVersion or string
+     * @param version2 second version to compare - as instance of SemVersion or string
+     */
   static compare(version1: SemVersion | string, version2: SemVersion | string): ComparisonResult {
     const v1: SemVersion = typeof version1 === 'string' ? new SemVersion(version1) : version1;
     const v2: SemVersion = typeof version2 === 'string' ? new SemVersion(version2) : version2;
@@ -86,48 +97,100 @@ export class SemVersion {
     return ComparisonResult.Equal;
   }
 
+  /**
+     * Greater than? true if the first version is strictly greater (>) than the second
+     * @param version1 first version to compare - as instance of SemVersion or string
+     * @param version2 second version to compare - as instance of SemVersion or string
+     */
   static gt(version1: SemVersion | string, version2: SemVersion | string): boolean {
     return SemVersion.compare(version1, version2) > 0;
   }
 
+  /**
+     * Greater or equal? true if the first version is greater than or equal to (>=) the second
+     * @param version1 first version to compare - as instance of SemVersion or string
+     * @param version2 second version to compare - as instance of SemVersion or string
+     */
   static ge(version1: SemVersion | string, version2: SemVersion | string): boolean {
     return SemVersion.compare(version1, version2) >= 0;
   }
 
+  /**
+     * Lower than? true if the first version is strictly lower (<) than the second
+     * @param version1 first version to compare - as instance of SemVersion or string
+     * @param version2 second version to compare - as instance of SemVersion or string
+     */
   static lt(version1: SemVersion | string, version2: SemVersion | string): boolean {
     return SemVersion.compare(version1, version2) < 0;
   }
 
+  /**
+     * Lower or equal? true if the first version is lower than or equal to (<=) the second
+     * @param version1 first version to compare - as instance of SemVersion or string
+     * @param version2 second version to compare - as instance of SemVersion or string
+     */
   static le(version1: SemVersion | string, version2: SemVersion | string): boolean {
     return SemVersion.compare(version1, version2) <= 0;
   }
 
+  /**
+     * equal? true if the first version is equal to (==) the second
+     * @param version1 first version to compare - as instance of SemVersion or string
+     * @param version2 second version to compare - as instance of SemVersion or string
+     */
   static eq(version1: SemVersion | string, version2: SemVersion | string): boolean {
     return SemVersion.compare(version1, version2) === 0;
   }
 
-  compareTo(v2: SemVersion | string): ComparisonResult {
-    return SemVersion.compare(this, v2);
+  /**
+     * Compare this version to the provided one
+     *    -1 if this <  comparison
+     *     0 if this == comparison
+     *     1 if this >  comparison
+     * @param comparison second version to compare - as instance of SemVersion or string
+     */
+  compareTo(comparison: SemVersion | string): ComparisonResult {
+    return SemVersion.compare(this, comparison);
   }
 
-  gt(version2: SemVersion | string): boolean {
-    return SemVersion.compare(this, version2) > 0;
+  /**
+     * Greater than? true if this version is strictly greater (>) than the compared one
+     * @param comparison second version to compare - as instance of SemVersion or string
+     */
+  gt(comparison: SemVersion | string): boolean {
+    return SemVersion.compare(this, comparison) > 0;
   }
 
-  ge(version2: SemVersion | string): boolean {
-    return SemVersion.compare(this, version2) >= 0;
+  /**
+     * Greater or equal? true if this version is greater than or equal to (>=) the compared one
+     * @param comparison second version to compare - as instance of SemVersion or string
+     */
+  ge(comparison: SemVersion | string): boolean {
+    return SemVersion.compare(this, comparison) >= 0;
   }
 
-  lt(version2: SemVersion | string): boolean {
-    return SemVersion.compare(this, version2) < 0;
+  /**
+     * Lower than? true this version is strictly lower (<) than the compared one
+     * @param comparison second version to compare - as instance of SemVersion or string
+     */
+  lt(comparison: SemVersion | string): boolean {
+    return SemVersion.compare(this, comparison) < 0;
   }
 
-  le(version2: SemVersion | string): boolean {
-    return SemVersion.compare(this, version2) <= 0;
+  /**
+     * Lower or equal? true this version is lower than or equal to (<=) the compared one
+     * @param comparison second version to compare - as instance of SemVersion or string
+     */
+  le(comparison: SemVersion | string): boolean {
+    return SemVersion.compare(this, comparison) <= 0;
   }
 
-  eq(version2: SemVersion | string): boolean {
-    return SemVersion.compare(this, version2) === 0;
+  /**
+     * equal? true if this version is equal to (==) the compared one
+     * @param comparison second version to compare - as instance of SemVersion or string
+     */
+  eq(comparison: SemVersion | string): boolean {
+    return SemVersion.compare(this, comparison) === 0;
   }
 
   toString(): string {
