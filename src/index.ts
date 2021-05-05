@@ -1,3 +1,3 @@
-import { SemVersion } from './SemVersion';
+import { SemVersion } from 'semVersion';
 
 export { SemVersion, SemVersion as default };
