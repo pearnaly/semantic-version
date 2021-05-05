@@ -5,9 +5,12 @@
 Javascript/Typescript class to represent, parse and compare semantic versions 2.0.0 according to [https://semver.org](semver.org)
 
 ## Installation
+### NPM
 ```
 npm install @pearnaly/semantic-version
 ```
+### Bundles
+https://unpkg.com/browse/@pearnaly/semantic-version/bundles/
 
 ## Use
 ### Object Oriented
