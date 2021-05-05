@@ -1,5 +1,5 @@
 # semantic-version
-[![Build Status](https://github.com/%40pearnaly/semantic-version/workflows/ci/badge.svg)](https://github.com/pearnaly/semantic-version/actions)
+[![Build Status](https://github.com/pearnaly/semantic-version/workflows/ci/badge.svg)](https://github.com/pearnaly/semantic-version/actions)
 [![npm version](https://badge.fury.io/js/%40pearnaly%2Fsemantic-version.svg)](https://badge.fury.io/js/%40pearnaly%2Fsemantic-version)
 
 Javascript/Typescript class to represent, parse and compare semantic versions 2.0.0 according to [https://semver.org](semver.org)
