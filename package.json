@@ -1,6 +1,6 @@
 {
   "name": "@pearnaly/semantic-version",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Javascript/Typescript class to represent, parse and compare semantic versions according to semver.org",
   "repository": "https://github.com/pearnaly/semantic-version.git",
   "homepage": "https://github.com/pearnaly/semantic-version",

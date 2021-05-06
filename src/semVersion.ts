@@ -22,7 +22,7 @@ export class SemVersion {
 
   public readonly buildMetadataIdentifiers: string[];
 
-  private static readonly REGEX = /^(?<major>0|[1-9]\d*)\.(?<minor>0|[1-9]\d*)\.(?<patch>0|[1-9]\d*)(?:-(?<preReleaseIdentifiers>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?<buildMetadataIdentifiers>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;
+  private static readonly REGEX = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;
 
   constructor(strVersion: string) {
     this.strVersion = strVersion;
@@ -31,12 +31,11 @@ export class SemVersion {
     if (!exec) {
       return;
     }
-    const { groups } = exec;
-    this.major = parseInt(groups.major, 10);
-    this.minor = parseInt(groups.minor, 10);
-    this.patch = parseInt(groups.patch, 10);
-    this.preReleaseIdentifiers = groups.preReleaseIdentifiers ? groups.preReleaseIdentifiers.split('.') : [];
-    this.buildMetadataIdentifiers = groups.buildMetadataIdentifiers ? groups.buildMetadataIdentifiers.split('.') : [];
+    this.major = parseInt(exec[1], 10);
+    this.minor = parseInt(exec[2], 10);
+    this.patch = parseInt(exec[3], 10);
+    this.preReleaseIdentifiers = exec[4] ? exec[4].split('.') : [];
+    this.buildMetadataIdentifiers = exec[5] ? exec[5].split('.') : [];
   }
 
   /**
