@@ -24,7 +24,7 @@
     "clean": "rimraf types es5 esm2015 bundles",
     "buildTypes": "tsc --declaration --allowJs --emitDeclarationOnly --removeComments false --outDir types",
     "build": "npm run clean && npm run buildTypes && tsc && tsc -m es6 --outDir esm2015 && webpack",
-    "watch": "npm run clean && tsc --watch",
+    "watch": "npm run clean && tsc --watch --sourceMap",
     "test": "mocha -r ts-node/register src/**/*.test.ts",
     "lint": "eslint src",
     "publish": "npm publish --access=public"
