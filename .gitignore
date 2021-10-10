@@ -82,7 +82,7 @@ typings/
 .nuxt
 types
 es5
-esm2015
+es2015
 bundles
 
 # Gatsby files

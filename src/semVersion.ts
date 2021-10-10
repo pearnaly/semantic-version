@@ -1,3 +1,6 @@
+/**
+ * Result of a comparison of two versions (-1/0/1)
+ */
 export enum ComparisonResult {
   Lower = -1,
   Equal = 0,

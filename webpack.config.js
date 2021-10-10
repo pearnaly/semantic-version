@@ -1,5 +1,4 @@
 const path = require("path");
-const webpack = require("webpack");
 const TerserPlugin = require('terser-webpack-plugin');
 
 const PATHS = {
@@ -25,8 +24,12 @@ const config = {
         path: PATHS.bundles,
         filename: '[name].js',
         libraryTarget: 'umd',
-        library: 'MyLib',
+        library:   {
+            name: 'SemVersion',
+            type: 'umd',
+        },
         umdNamedDefine: true,
+        globalObject: `(typeof self !== 'undefined' ? self : this)`
     },
     // Add resolve for `tsx` and `ts` files, otherwise Webpack would
     // only look for common JavaScript file extension (.js)
