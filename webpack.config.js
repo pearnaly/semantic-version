@@ -27,6 +27,7 @@ const config = {
         library:   {
             name: 'SemVersion',
             type: 'umd',
+            export: 'default'
         },
         umdNamedDefine: true,
         globalObject: `(typeof self !== 'undefined' ? self : this)`
